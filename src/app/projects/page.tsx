@@ -1,10 +1,8 @@
 'use client'
 
 import { Project } from '@/components/project'
-import { useState } from 'react'
 
 export default function Projects() {
-	const [projects, setProjects] = useState([])
 	return (
 		<>
 		<div className='Page'>

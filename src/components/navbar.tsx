@@ -9,21 +9,18 @@ const iconRoutes = [
   { path: '/', icon: Home },
   { path: '/projects', icon: Folder },
   { path: '/fin', icon: BadgeDollarSignIcon },
-  // { path: '/tasks', icon: ListChecks }
 ]
 
 export function NavBar() {
   const pathname = usePathname()
-  const [prevIndex, setPrevIndex] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0)
   const navRef = useRef<HTMLDivElement>(null)
   const dotRef = useRef<HTMLDivElement>(null)
 
-  // Находим индексы текущего и предыдущего маршрутов
+  // Находим индекс текущего маршрута
   useEffect(() => {
     const newIndex = iconRoutes.findIndex(route => route.path === pathname)
     if (newIndex !== -1 && newIndex !== currentIndex) {
-      setPrevIndex(currentIndex)
       setCurrentIndex(newIndex)
     }
   }, [pathname, currentIndex])
@@ -43,8 +40,8 @@ export function NavBar() {
     const navRect = nav.getBoundingClientRect()
 
     // Позиция точки (по центру иконки)
-    const x = iconRect.left - navRect.left + iconRect.width / 2 - 3 // 3 - половина ширины точки
-    const y = iconRect.bottom - navRect.top - 8 // 8px от нижнего края
+    const x = iconRect.left - navRect.left + iconRect.width / 2 - 3
+    const y = iconRect.bottom - navRect.top - 8
 
     dot.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)'
     dot.style.transform = `translate(${x}px, ${y}px)`

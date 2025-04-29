@@ -1,7 +1,7 @@
 import { NavBar } from '@/components/navbar'
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
-import Head from 'next/head'
+import Script from 'next/script'
 import "./globals.css"
 
 
@@ -25,9 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.className}>
-      <Head>
-        <script src="https://telegram.org/js/telegram-web-app.js?57" />
-      </Head>
+      <head>
+        <Script 
+          src="https://telegram.org/js/telegram-web-app.js?57" 
+          strategy="beforeInteractive" 
+        />
+      </head>
       <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <main style={{ flex: '1' }}>
           {children}
