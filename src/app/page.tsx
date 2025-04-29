@@ -5,12 +5,14 @@ import { Pinned } from '@/components/pinned'
 import { Settings, UserCircleIcon } from 'lucide-react'
 import { useEffect } from 'react'
 
+window.Telegram.WebApp.ready()
+
 export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
-      console.log("initData", window.Telegram.WebApp.initData)
       window.Telegram.WebApp.ready()
+      console.log("initData", window.Telegram.WebApp.initData)
     }
   }, [])
 
