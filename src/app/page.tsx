@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
-      console.log(window.Telegram.WebApp.initData)
+      console.log("initData", window.Telegram.WebApp.initData)
       window.Telegram.WebApp.ready()
     }
   }, [])
