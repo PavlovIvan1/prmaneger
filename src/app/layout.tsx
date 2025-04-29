@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { NavBar } from '@/components/navbar'
+import type { Metadata } from "next"
+import { Poppins } from "next/font/google"
+import Head from 'next/head'
+import "./globals.css"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Настройка Poppins с нужными начертаниями
+const poppins = Poppins({
+  weight: ['400', '500', '600', '700'], // Выберите нужные варианты толщины
   subsets: ["latin"],
+  variable: "--font-poppins",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -23,9 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html lang="en" className={poppins.className}>
+      <Head>
+        <script src="https://telegram.org/js/telegram-web-app.js?57" />
+      </Head>
+      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <main style={{ flex: '1' }}>
+          {children}
+        </main>
+        <NavBar />
       </body>
     </html>
   );
