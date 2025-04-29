@@ -59,8 +59,13 @@ function CircularProgressWithLabel(
 	);
 }
 
+interface TaskProps {
+  progress: number;
+  title: string;
+  time?: string;
+}
 
-export function Task({ progress, title, time }) {
+export function Task({ progress, title, time }: TaskProps) {
 	return (
 		<>
 				<div style={{ marginTop: '10px' }}>
