@@ -5,8 +5,6 @@ import { Pinned } from '@/components/pinned'
 import { Settings, UserCircleIcon } from 'lucide-react'
 import { useEffect } from 'react'
 
-window.Telegram.WebApp.ready()
-
 export default function Home() {
 
   useEffect(() => {
