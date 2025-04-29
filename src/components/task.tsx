@@ -32,7 +32,7 @@ function CircularProgressWithLabel(
 					'& .MuiCircularProgress-circle': {
 						strokeLinecap: 'round',
 					},
-					color: '#cfc848',
+					color: '#f2ea4a',
 					...props.sx, // Сохраняем переданные стили
 				}}
 			/>

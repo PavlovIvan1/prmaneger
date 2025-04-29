@@ -64,7 +64,7 @@ export function NavBar() {
           width: '6px',
           height: '6px',
           borderRadius: '50%',
-          backgroundColor: '#cfc848',
+          backgroundColor: '#f2ea4a',
           left: 0,
           top: 0,
           transform: 'translate(0, 0)',
@@ -104,7 +104,7 @@ export function NavBar() {
               <Icon 
                 width={30} 
                 height={30} 
-                color={isActive ? '#cfc848' : '#666666'}
+                color={isActive ? '#f2ea4a' : '#666666'}
                 style={{
                   transition: 'color 0.3s ease',
                 }}

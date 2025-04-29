@@ -3,12 +3,17 @@
 import { Daily } from '@/components/dailytasks'
 import { Pinned } from '@/components/pinned'
 import { Settings, UserCircleIcon } from 'lucide-react'
-
-// init()
-// viewport.mount()
-// viewport.expand()
+import { useEffect } from 'react'
 
 export default function Home() {
+
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
+      console.log(window.Telegram.WebApp.initData)
+      window.Telegram.WebApp.ready()
+    }
+  }, [])
+
   return (
     <>
       <div className='Page'>
