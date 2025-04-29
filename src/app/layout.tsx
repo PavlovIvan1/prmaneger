@@ -29,6 +29,7 @@ export default function RootLayout({
         <Script 
           src="https://telegram.org/js/telegram-web-app.js?57" 
           strategy="beforeInteractive" 
+          onLoad={() => console.log('Telegram SDK loaded')}
         />
       </head>
       <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>

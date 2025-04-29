@@ -8,11 +8,26 @@ import { useEffect } from 'react'
 export default function Home() {
 
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.Telegram?.WebApp) {
-      window.Telegram.WebApp.ready()
-      console.log("initData", window.Telegram.WebApp.initData)
+    if (typeof window === 'undefined') return;
+    
+    const tg = window.Telegram?.WebApp;
+    if (!tg) {
+      console.error('Telegram WebApp NOT DETECTED');
+      return;
     }
-  }, [])
+  
+    console.log('WebApp environment:', {
+      platform: tg.platform,
+      version: tg.version,
+      isExpanded: tg.isExpanded,
+      initData: tg.initData,
+      initDataUnsafe: tg.initDataUnsafe,
+      themeParams: tg.themeParams
+    });
+  
+    tg.ready();
+    tg.expand();
+  }, []);
 
   return (
     <>
