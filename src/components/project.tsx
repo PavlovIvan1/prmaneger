@@ -53,7 +53,7 @@ function CircularProgressWithLabel(
         <Typography
           variant="caption"
           component="div"
-          sx={{ color: 'text.secondary', fontSize: '1.3rem' }}
+          sx={{ color: 'white', fontSize: '1.3rem' }}
         >{`${Math.round(props.value)}%`}</Typography>
       </Box>
     </Box>
@@ -62,8 +62,8 @@ function CircularProgressWithLabel(
 
 
 const backgroundColors = [
-	'#f2ea4a',
-  '#f2ea4a'
+	'#008ebb',
+  '#008ebb'
 ]
 
 export function Project() {
@@ -92,7 +92,7 @@ export function Project() {
     }}>
       <div>
       <div>
-        <h1 style={{ margin: '0', padding: '0' }}>OZZO</h1>
+        <h1 style={{ margin: '0', padding: '0', color: 'white' }}>OZZO</h1>
         <span style={{ color: secondaryTextColor }}>telegram web app</span>
       </div>
 

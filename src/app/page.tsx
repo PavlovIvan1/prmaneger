@@ -17,12 +17,8 @@ export default function Home() {
     }
   
     console.log('WebApp environment:', {
-      platform: tg.platform,
-      version: tg.version,
-      isExpanded: tg.isExpanded,
       initData: tg.initData,
       initDataUnsafe: tg.initDataUnsafe,
-      themeParams: tg.themeParams
     });
   
     tg.ready();
