@@ -1,4 +1,7 @@
+'use client'
+
 import { Listbox } from '@headlessui/react'
+import { useState } from 'react'
 
 const periods = [
   { id: 1, name: 'По дням', value: 'daily' },
