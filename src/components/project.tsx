@@ -233,7 +233,7 @@ export function Project({ id, name, description, budget, status, onStatusChange 
   const statusOptions = [
     { value: 'planned', label: 'Запланирован' },
     { value: 'in_progress', label: 'В работе' },
-    { value: 'completed', label: 'Завершён' }
+    { value: 'done', label: 'Завершён' }
   ]
 
   const getStatusDisplay = (status: string) => {
