@@ -30,7 +30,7 @@ export function Pinned() {
 
         const response = await axios.get<ProjectData[]>(`${API_URL}/projects`, {
           headers: {
-            'x-user-id': userId,
+            'auth': userId,
             'Content-Type': 'application/json'
           }
         })
