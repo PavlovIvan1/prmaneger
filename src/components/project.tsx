@@ -231,7 +231,7 @@ export function Project({ id, name, description, budget, status, onStatusChange 
   const formattedBudget = new Intl.NumberFormat('en-US').format(budget)
 
   const statusOptions = [
-    { value: 'planned', label: 'Запланирован' },
+    // { value: 'planned', label: 'Запланирован' },
     { value: 'in_progress', label: 'В работе' },
     { value: 'done', label: 'Завершён' }
   ]
