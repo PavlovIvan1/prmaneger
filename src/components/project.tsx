@@ -1,64 +1,59 @@
-import Box from '@mui/material/Box'
-import CircularProgress, {
-  CircularProgressProps,
-} from '@mui/material/CircularProgress'
-import Typography from '@mui/material/Typography'
 import { ArrowRight } from 'lucide-react'
 
 
-function CircularProgressWithLabel(
-  props: CircularProgressProps & { value: number },
-) {
-  return (
-    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
-      {/* Серый фон (незаполненная часть) */}
-      <CircularProgress
-        variant="determinate"
-        value={100}
-        sx={{
-          color: '#E0E0E0',
-          position: 'absolute',
-        }}
-        size={90}
-        thickness={4}
-      />
-      {/* Основной прогресс (с закруглёнными краями) */}
-      <CircularProgress
-        variant="determinate"
-        {...props}
-        size={90}
-        thickness={4}
-        sx={{
-          // Закругляем края прогресса
-          '& .MuiCircularProgress-circle': {
-            strokeLinecap: 'round',
-          },
-          color: '#f2ea4a',
-          ...props.sx, // Сохраняем переданные стили
-        }}
-      />
-      {/* Текст с процентами */}
-      <Box
-        sx={{
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          position: 'absolute',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Typography
-          variant="caption"
-          component="div"
-          sx={{ color: 'white', fontSize: '1.3rem' }}
-        >{`${Math.round(props.value)}%`}</Typography>
-      </Box>
-    </Box>
-  );
-}
+// function CircularProgressWithLabel(
+//   props: CircularProgressProps & { value: number },
+// ) {
+//   return (
+//     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+//       {/* Серый фон (незаполненная часть) */}
+//       <CircularProgress
+//         variant="determinate"
+//         value={100}
+//         sx={{
+//           color: '#E0E0E0',
+//           position: 'absolute',
+//         }}
+//         size={90}
+//         thickness={4}
+//       />
+//       {/* Основной прогресс (с закруглёнными краями) */}
+//       <CircularProgress
+//         variant="determinate"
+//         {...props}
+//         size={90}
+//         thickness={4}
+//         sx={{
+//           // Закругляем края прогресса
+//           '& .MuiCircularProgress-circle': {
+//             strokeLinecap: 'round',
+//           },
+//           color: '#f2ea4a',
+//           ...props.sx, // Сохраняем переданные стили
+//         }}
+//       />
+//       {/* Текст с процентами */}
+//       <Box
+//         sx={{
+//           top: 0,
+//           left: 0,
+//           bottom: 0,
+//           right: 0,
+//           position: 'absolute',
+//           display: 'flex',
+//           alignItems: 'center',
+//           justifyContent: 'center',
+//         }}
+//       >
+//         <Typography
+//           variant="caption"
+//           component="div"
+//           sx={{ color: 'white', fontSize: '1.3rem' }}
+//         >{`${Math.round(props.value)}%`}</Typography>
+//       </Box>
+//     </Box>
+//   );
+// }
 
 
 const backgroundColors = [
