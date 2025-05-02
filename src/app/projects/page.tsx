@@ -101,6 +101,7 @@ export default function Projects() {
           projects.map((project) => (
             <Project 
               key={project.id}
+              id={project.id}  // Передаем обязательный пропс id
               name={project.title}
               description={project.description}
               budget={project.budget}
