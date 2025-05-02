@@ -1,5 +1,13 @@
 'use client'
 
+import { Button } from "@heroui/button"
+import {
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader
+} from "@heroui/modal"
 import { BadgeDollarSignIcon, Folder, Home, Plus } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -14,6 +22,7 @@ const iconRoutes = [
 export function NavBar() {
   const pathname = usePathname()
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false) // Состояние модалки
   const navRef = useRef<HTMLDivElement>(null)
   const dotRef = useRef<HTMLDivElement>(null)
 
@@ -39,7 +48,6 @@ export function NavBar() {
     const iconRect = currentIcon.getBoundingClientRect()
     const navRect = nav.getBoundingClientRect()
 
-    // Позиция точки (по центру иконки)
     const x = iconRect.left - navRect.left + iconRect.width / 2 - 3
     const y = iconRect.bottom - navRect.top - 8
 
@@ -49,6 +57,29 @@ export function NavBar() {
 
   return (
     <div style={{ position: 'relative' }}>
+      {/* Модальное окно */}
+      <Modal isOpen={isModalOpen} onOpenChange={() => setIsModalOpen(false)}>
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader>Создать новый проект</ModalHeader>
+              <ModalBody>
+                <p>Здесь будет форма создания проекта</p>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" variant="light" onPress={onClose}>
+                  Отмена
+                </Button>
+                <Button color="primary" onPress={onClose}>
+                  Создать
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+
+      {/* Навбар */}
       <div ref={navRef} style={{
         display: 'flex',
         alignItems: 'center',
@@ -71,17 +102,22 @@ export function NavBar() {
           willChange: 'transform',
         }} />
 
-        <div style={{
-          background: 'black',
-          width: '50px',
-          height: '50px',
-          borderRadius: '100%',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          cursor: 'pointer',
-          transition: 'transform 0.2s ease',
-        }} className="hover:scale-105">
+        {/* Кнопка плюса с обработчиком */}
+        <div 
+          onClick={() => setIsModalOpen(true)}
+          style={{
+            background: 'black',
+            width: '50px',
+            height: '50px',
+            borderRadius: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'pointer',
+            transition: 'transform 0.2s ease',
+          }} 
+          className="hover:scale-105"
+        >
           <Plus color='white' width={35} height={35} strokeWidth={2} />
         </div>
 

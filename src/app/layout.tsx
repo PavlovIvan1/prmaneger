@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google"
 import Script from 'next/script'
 import "./globals.css"
 
-
 // Настройка Poppins с нужными начертаниями
 const poppins = Poppins({
   weight: ['400', '500', '600', '700'], // Выберите нужные варианты толщины
@@ -31,12 +30,12 @@ export default function RootLayout({
           strategy="beforeInteractive" 
         />
       </head>
-      <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <main style={{ flex: '1' }}>
-          {children}
-        </main>
-        <NavBar />
-      </body>
+        <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <main style={{ flex: '1' }}>
+            {children}
+          </main>
+          <NavBar />
+        </body>
     </html>
   );
 }

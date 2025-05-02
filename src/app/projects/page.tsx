@@ -1,8 +1,17 @@
 'use client'
 
 import { Project } from '@/components/project'
+import { getProjects } from '@/services/requests'
+import { useEffect } from 'react'
 
 export default function Projects() {
+
+	useEffect(() => {
+    getProjects()
+      .then((data) => console.log("data", data))
+      .catch(console.error);
+  }, []);
+
 	return (
 		<>
 		<div className='Page'>
