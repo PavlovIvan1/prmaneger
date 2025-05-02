@@ -243,39 +243,51 @@ export function Project({ id, name, description, budget, status, onStatusChange 
 
   const handleStatusChange = async (newStatus: string) => {
     if (newStatus === currentStatus) {
-      setIsMenuOpen(false)
-      return
+      setIsMenuOpen(false);
+      return;
     }
-
-    setIsChangingStatus(true)
+  
+    setIsChangingStatus(true);
     try {
-      const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id
+      const userId = window.Telegram?.WebApp?.initDataUnsafe?.user?.id;
       
       if (!userId) {
-        throw new Error('Не удалось получить ID пользователя Telegram')
+        throw new Error('Не удалось получить ID пользователя Telegram');
       }
-
-      await axios.patch(`${API_URL}/projects/${id}/status`, {
-        new_status: newStatus
-      }, {
-        headers: {
-          'auth': userId,
-          'Content-Type': 'application/json'
+  
+      const response = await axios.patch(
+        `${API_URL}/projects/${id}/status`,
+        { new_status: newStatus },
+        {
+          headers: {
+            'auth': userId,
+            'Content-Type': 'application/json'
+          }
         }
-      })
-
-      setCurrentStatus(newStatus)
+      );
+  
+      setCurrentStatus(newStatus);
       if (onStatusChange) {
-        onStatusChange(id, newStatus)
+        onStatusChange(id, newStatus);
       }
-    } catch (error) {
-      console.error('Ошибка при изменении статуса:', error)
-      alert('Не удалось изменить статус проекта')
+    } catch (err) {
+      let errorMessage = 'Не удалось изменить статус проекта';
+      
+      if (axios.isAxiosError(err)) {
+        // Ошибка от Axios (HTTP ошибка)
+        errorMessage = err.response?.data?.detail || err.message || errorMessage;
+      } else if (err instanceof Error) {
+        // Стандартная JavaScript ошибка
+        errorMessage = err.message;
+      }
+      
+      console.error('Ошибка при изменении статуса:', err);
+      alert(errorMessage);
     } finally {
-      setIsChangingStatus(false)
-      setIsMenuOpen(false)
+      setIsChangingStatus(false);
+      setIsMenuOpen(false);
     }
-  }
+  };
 
   return (
     <div style={{ 
