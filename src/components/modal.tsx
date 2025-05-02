@@ -1,12 +1,13 @@
 'use client'
 
+import { Button } from "@heroui/button"
 import {
-	Modal,
-	ModalBody,
-	ModalContent,
-	ModalFooter,
-	ModalHeader,
-	useDisclosure,
+  Modal,
+  ModalBody,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  useDisclosure,
 } from "@heroui/modal"
 
 export function Mup() {
