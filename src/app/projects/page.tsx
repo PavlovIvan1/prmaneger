@@ -32,7 +32,7 @@ export default function Projects() {
 
         const response = await axios.get(`${API_URL}/projects`, {
           headers: {
-            'x-user-id': userId,
+            'auth': userId,
             'Content-Type': 'application/json'
           }
         })
